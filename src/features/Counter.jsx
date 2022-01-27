@@ -3,18 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import {
     decrement,
     increment,
-    reset, getAllFlights
+    reset
 } from "../redux/actions/index";
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 const Counter = (props) => {
 
-    useEffect(() => {
-        if (props) {
-            props.selectFlight()
-        }
-    }, [props.visible]);
+    // useEffect(() => {
+    //     if (props) {
+    //         props.getList()
+    //     }
+    // }, [props.visible]);
     const counter = useSelector((state) => state.counter);
     const dispatch = useDispatch();
 
@@ -42,14 +41,9 @@ const Counter = (props) => {
         </div>
     )
 }
-function mapStateToProps(state) {
-    const { list_data } = state.crudReducer;
-    return {
-        list_data
-    };
-}
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ selectFlight: getAllFlights }, dispatch);
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+// function mapDispatchToProps(dispatch) {
+//     return bindActionCreators({ getList: getList }, dispatch);
+// }
+export default connect(null, null)(Counter);

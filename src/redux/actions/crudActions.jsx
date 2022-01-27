@@ -1,11 +1,9 @@
-import axios from 'axios';
-export const FETCH_TODOS = 'FETCH_TODOS';
+// import axios from 'axios';
+import { FETCH_TODOS } from './types';
 
-export const getAllFlights = () => {
-
-    const request = axios.get('https://jsonplaceholder.typicode.com/posts');
+export const getList = (value) => {
     return {
         type: FETCH_TODOS,
-        payload: { data: request.then((data) => { return data.data }) }
+        payload: { data: value }
     };
 }

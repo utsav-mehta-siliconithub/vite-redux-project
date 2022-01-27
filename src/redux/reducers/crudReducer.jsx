@@ -1,4 +1,4 @@
-import { FETCH_TODOS } from '../actions/index';
+import { FETCH_TODOS } from '../actions/types';
 const INITIALSTATE = {
     list_data: []
 }

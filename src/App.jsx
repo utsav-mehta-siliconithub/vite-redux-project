@@ -1,7 +1,7 @@
 import logo from './logo.svg'
 import './App.css'
 import Counter from './features/Counter'
-import { ListComponent } from './features/ListComponent'
+import ListComponent from './features/ListComponent'
 
 function App() {
 
