@@ -9,11 +9,6 @@ import { connect } from 'react-redux';
 
 const Counter = (props) => {
 
-    // useEffect(() => {
-    //     if (props) {
-    //         props.getList()
-    //     }
-    // }, [props.visible]);
     const counter = useSelector((state) => state.counter);
     const dispatch = useDispatch();
 

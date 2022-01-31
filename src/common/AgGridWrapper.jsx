@@ -1,54 +1,25 @@
-import { AgGridReact } from "@ag-grid-community/react";
-import { AllModules } from "@ag-grid-enterprise/all-modules";
-const AgGridWrapper = () => {
-    const defaultColDef = {
-        resizable: true,
-        sortable: true,
-        filter: 'agTextColumnFilter',
-        filterParams: {
-            suppressAndOrCondition: true,
-        },
-        floatingFilter: true,
-        minWidth: 200,
-        flex: 1,
-        cellStyle: { textAlign: "center" },
-    };
-    const columnTypes = {
-        actionColumn: {
-            cellRenderer: 'ActionRenderer'
-        },
-    };
-    const options = {
-        animateRows: true,
-        pagination: true,
-        paginationPageSize: 50,
-    };
-    const columnDefs = [
-        {
-            headerName: "# ID",
-            field: "srno",
-            filter: "agNumberColumnFilter",
-            pinned: "left",
-            minWidth: 120,
-            width: 120,
-        },
-        {
-            headerName: "Name",
-            field: "name",
-        },
-    ]
+import React, { useState } from 'react';
+import { AgGridReact } from 'ag-grid-react';
+function AgGridWrapper(props) {
+    const { list_data, colDefs } = props;
+
+
     return (
-        <AgGridReact
-            rowHeight={40}
-            headerHeight={40}
-            modules={AllModules}
-            columnDefs={columnDefs}
-            defaultColDef={defaultColDef}
-            columnTypes={columnTypes}
-            overlayNoRowsTemplate={"No Records Found."}
-            // onGridReady={setupGrid}
-            gridOptions={options}
-        />
+        <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
+            <AgGridReact
+                rowHeight={40}
+                headerHeight={40}
+                defaultColDef={{ sortable: true, filter: true, flex: 1, floatingFilter: true }}
+                pagination={true}
+                rowData={list_data}
+                gridOptions={{
+                    paginationPageSize: 20,
+                }}
+                columnDefs={colDefs}
+            >
+            </AgGridReact>
+        </div>
     )
-}
+};
+
 export default AgGridWrapper;
